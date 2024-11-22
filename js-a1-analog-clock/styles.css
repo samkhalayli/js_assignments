@@ -1,0 +1,90 @@
+*, *::after, *::before {
+          font-family: Arial, Helvetica, sans-serif;
+          box-sizing: border-box;
+}
+   
+body {
+     background: linear-gradient(to right, hsl(200, 100%, 50%), hsl(175, 100%, 50%));
+     justify-content: center;
+     min-height: 100vh;
+     align-items: center;
+     display: flex;
+     overflow: hidden;
+}
+   
+.clock {
+     position: relative;
+     background-color: rgba(255,255,255, .8);
+     border: solid 3px black;
+     border-radius: 50%;
+     height: 500px;
+     width: 500px;
+}
+   
+.clock .num {
+     font-size: 2.5rem;
+     position: absolute;
+     --rotation: 0;
+     height: 100%;
+     width: 100%;
+     text-align: center;
+     transform: rotate(var(--rotation));
+}
+   
+.clock .num1     { --rotation: 30deg;  }
+.clock .num2     { --rotation: 60deg;  }
+.clock .num3     { --rotation: 90deg;  }
+.clock .num4     { --rotation: 120deg; }
+.clock .num5     { --rotation: 150deg; }
+.clock .num6     { --rotation: 180deg; }
+.clock .num7     { --rotation: 210deg; }
+.clock .num8     { --rotation: 240deg; }
+.clock .num9     { --rotation: 270deg; }
+.clock .num10    { --rotation: 300deg; }
+.clock .num11    { --rotation: 330deg; }
+   
+.clock::after {
+     background-color: black;
+     content: '';
+     border-radius: 50%;
+     position: absolute;
+     z-index: 11;
+     height: 15px;
+     width: 15px;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+}
+
+.clock .hand {
+     border: 1px solid white;
+     border-top-left-radius: 10px;
+     border-top-right-radius: 10px;
+     position: absolute;
+     --rotation: 0;
+     bottom: 50%;
+     left: 50%;
+     transform-origin: bottom;
+     transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+     z-index: 10;
+}
+
+.clock .hand.hour, .hand.min {
+     background-color: black;
+}
+
+.clock .hand.hour {
+     height: 30%;
+     width: 10px;
+}
+
+.clock .hand.min {
+     height: 40%;
+     width: 7px;
+}
+
+.clock .hand.sec {
+     background-color: rgb(146, 0, 0);
+     height: 45%;
+     width: 3px;
+}
